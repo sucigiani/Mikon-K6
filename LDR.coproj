@@ -73,12 +73,12 @@
     <File name="cmsis_lib/Include/Driver/DrvSPI.h" path="cmsis_lib/Include/Driver/DrvSPI.h" type="1"/>
     <File name="cmsis_lib/Include" path="" type="2"/>
     <File name="cmsis_boot/NUC1xx.h" path="cmsis_boot/NUC1xx.h" type="1"/>
-    <File name="Init.c" path="Init.c" type="1"/>
     <File name="cmsis_boot/system_NUC1xx.h" path="cmsis_boot/system_NUC1xx.h" type="1"/>
+    <File name="Init.c" path="Init.c" type="1"/>
     <File name="cmsis_boot" path="" type="2"/>
     <File name="cmsis_lib/Include/Driver/DrvPWM.h" path="../../../../../Nuvoton/BSP Library/NUC100SeriesBSP_CMSIS_v1.05.003/NuvotonPlatform_Keil/Include/Driver/DrvPWM.h" type="1"/>
-    <File name="cmsis_lib/Include/System/ModuleID.h" path="cmsis_lib/Include/System/ModuleID.h" type="1"/>
     <File name="cmsis_lib/Include/Driver/DrvSYS.h" path="cmsis_lib/Include/Driver/DrvSYS.h" type="1"/>
+    <File name="cmsis_lib/Include/System/ModuleID.h" path="cmsis_lib/Include/System/ModuleID.h" type="1"/>
     <File name="cmsis_lib/Include/Driver/DrvADC.h" path="cmsis_lib/Include/Driver/DrvADC.h" type="1"/>
     <File name="cmsis_boot/startup" path="" type="2"/>
     <File name="cmsis_lib/Include/System" path="" type="2"/>
@@ -98,9 +98,10 @@
     <File name="cmsis_lib/Src/Driver/DrvGPIO.c" path="cmsis_lib/Src/Driver/DrvGPIO.c" type="1"/>
     <File name="cmsis_lib/Include/Driver/DrvGPIO.h" path="cmsis_lib/Include/Driver/DrvGPIO.h" type="1"/>
     <File name="cmsis_lib/Include/Driver/LCD_Driver.h" path="../../../../../Nuvoton/BSP Library/NUC100SeriesBSP_CMSIS_v1.05.003/NuvotonPlatform_Keil/Include/NUC1xx-LB_002/LCD_Driver.h" type="1"/>
-    <File name="cmsis_lib/Src/Driver/DrvPWM.c" path="../../../../../Nuvoton/BSP Library/NUC100SeriesBSP_CMSIS_v1.05.003/NuvotonPlatform_Keil/Src/Driver/DrvPWM.c" type="1"/>
+    <File name="cmsis_lib/Src/Driver/PWM.c" path="cmsis_lib/Src/Driver/PWM.c" type="1"/>
     <File name="main.c" path="main.c" type="1"/>
-    <File name="cmsis_lib/Src" path="" type="2"/>
+    <File name="cmsis_lib/Include/Driver/PWM.h" path="cmsis_lib/Include/Driver/PWM.h" type="1"/>
     <File name="cmsis_core/core_cm0.c" path="cmsis_core/core_cm0.c" type="1"/>
+    <File name="cmsis_lib/Src" path="" type="2"/>
   </Files>
 </Project>

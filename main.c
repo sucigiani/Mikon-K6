@@ -28,10 +28,7 @@ void read_ldr(int x) {
 	DrvSYS_Delay(100000);
 }
 
-int main(void)
-{
-    Init();
-    //inisialisasi variabel PWM
+//inisialisasi variabel PWM
     	//uint8_t i;
         uint8_t hitime;
     	//char TEXT0[16],TEXT1[16],TEXT2[16],TEXT3[16];
@@ -112,6 +109,11 @@ int main(void)
     			PWM_Out(0, CNR, CMR);
     		}
 
+int main(void)
+{
+    Init();
+
+
     int adc,state;
     Initial_pannel();
     DrvGPIO_ClrBit(E_GPD,14);
@@ -122,10 +124,10 @@ int main(void)
     	adc=DrvADC_GetConversionData(0);
     	read_ldr(adc);
     	DrvSYS_Delay(1000000);
-    	if (adc>3000) {
+    	if ((adc>3000) && (state==1)) {
     		state = 0;
     		servo_tutup();
-    	} else if (adc<900){
+    	} else if ((adc<900) && (state==1)){
     		state = 0;
     		servo_tutup();
     	} else {

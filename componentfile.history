@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<History> 
+  <File usedCount="2" path="cmsis_lib/include/driver/drvgpio.h"/>  
+  <File usedCount="2" path="cmsis_lib/src/driver/drvgpio.c"/>  
+  <File usedCount="2" path="cmsis_boot/nuc1xx.h"/>  
+  <File usedCount="2" path="cmsis_boot/startup/startup_nuc1xx.c"/>  
+  <File usedCount="2" path="cmsis_boot/system_nuc1xx.c"/>  
+  <File usedCount="2" path="cmsis_boot/system_nuc1xx.h"/>  
+  <File usedCount="2" path="cmsis_core/core_cm0.c"/>  
+  <File usedCount="2" path="cmsis_core/core_cm0.h"/>  
+  <File usedCount="2" path="cmsis_lib/include/system/moduleid.h"/>  
+  <File usedCount="2" path="cmsis_lib/include/system/sysinfra.h"/>  
+  <File usedCount="2" path="cmsis_lib/include/driver/drvsys.h"/>  
+  <File usedCount="2" path="cmsis_lib/src/driver/drvsys.c"/>  
+  <File usedCount="2" path="cmsis_lib/include/driver/drvadc.h"/>  
+  <File usedCount="2" path="cmsis_lib/src/driver/drvadc.c"/>  
+  <File usedCount="2" path="cmsis_lib/include/driver/drvspi.h"/>  
+  <File usedCount="2" path="cmsis_lib/src/driver/drvspi.c"/>
+</History>

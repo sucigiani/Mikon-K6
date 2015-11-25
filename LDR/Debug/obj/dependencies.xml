@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dependencies>
+   <includePath signature="/I..\..\..\..\..\Nuvoton\BSP Library\NUC100SeriesBSP_CMSIS_v1.05.003\NuvotonPlatform_Keil\Include /I..\..\..\..\..\Users\A46CB\Desktop\Proyek MIkon Prak\LDR_1\cmsis_lib\Include\System /I..\..\..\..\..\Users\A46CB\Desktop\Proyek MIkon Prak\LDR_1\cmsis_core /I..\..\..\..\..\Nuvoton\BSP Library\NUC100SeriesBSP_CMSIS_v1.05.003\NuvotonPlatform_Keil\Include\NUC1xx-LB_002 /I..\..\..\..\..\Users\A46CB\Desktop\Proyek MIkon Prak\LDR_1\cmsis_lib\Include /I..\..\..\..\..\Users\A46CB\Desktop\Proyek MIkon Prak /I..\..\..\..\..\Nuvoton\BSP Library\NUC100SeriesBSP_CMSIS_v1.05.003\NuvotonPlatform_Keil /I..\..\..\..\..\Users\A46CB\Desktop\Proyek MIkon Prak\LDR_1\cmsis_lib\Include\Driver /I..\..\..\..\..\Users\A46CB\Desktop\Proyek MIkon Prak\LDR_1\cmsis_lib /I..\..\..\..\..\Users\A46CB\Desktop\Proyek MIkon Prak\LDR_1 /I..\..\..\..\..\Users\A46CB\Desktop\Proyek MIkon Prak\LDR_1\cmsis_boot">
+      <source file="..\..\..\cmsis_lib\Include\Driver\DrvADC.h" lastModified="1513d28e2d1">
+         <include file="..\..\..\cmsis_boot\NUC1xx.h"/>
+         <include file="..\..\..\..\..\..\..\..\Nuvoton\BSP Library\NUC100SeriesBSP_CMSIS_v1.05.003\NuvotonPlatform_Keil\Include\System\SysInfra.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\Src\Driver\DrvSPI.c" lastModified="1513d28e2f0">
+         <include file="..\..\..\cmsis_boot\NUC1xx.h"/>
+         <include file="..\..\..\cmsis_core\core_cm0.h"/>
+         <include file="..\..\..\cmsis_lib\Include\Driver\DrvSPI.h"/>
+         <include file="..\..\..\cmsis_lib\Include\Driver\DrvSYS.h"/>
+      </source>
+      <source file="..\..\..\..\..\..\..\..\Nuvoton\BSP Library\NUC100SeriesBSP_CMSIS_v1.05.003\NuvotonPlatform_Keil\Include\Driver\DrvSYS.h" lastModified="136156bf390">
+         <include file="..\..\..\cmsis_boot\NUC1xx.h"/>
+      </source>
+      <source file="..\..\..\..\..\..\..\..\Nuvoton\BSP Library\NUC100SeriesBSP_CMSIS_v1.05.003\NuvotonPlatform_Keil\Src\NUC1xx-LB_002\LCD_Driver.c" lastModified="136156c5920">
+         <include file="..\..\..\cmsis_boot\NUC1xx.h"/>
+         <include file="..\..\..\..\..\..\..\..\Nuvoton\BSP Library\NUC100SeriesBSP_CMSIS_v1.05.003\NuvotonPlatform_Keil\Include\Driver\DrvSYS.h"/>
+         <include file="..\..\..\..\..\..\..\..\Nuvoton\BSP Library\NUC100SeriesBSP_CMSIS_v1.05.003\NuvotonPlatform_Keil\Include\Driver\DrvSPI.h"/>
+         <include file="..\..\..\..\..\..\..\..\Nuvoton\BSP Library\NUC100SeriesBSP_CMSIS_v1.05.003\NuvotonPlatform_Keil\Include\Driver\DrvGPIO.h"/>
+         <include file="..\..\..\..\..\..\..\..\Nuvoton\BSP Library\NUC100SeriesBSP_CMSIS_v1.05.003\NuvotonPlatform_Keil\Include\NUC1xx-LB_002\LCD_Driver.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\Include\Driver\DrvSYS.h" lastModified="1513d28e2b2">
+         <include file="..\..\..\cmsis_boot\NUC1xx.h"/>
+      </source>
+      <source file="..\..\..\..\..\..\..\..\Nuvoton\BSP Library\NUC100SeriesBSP_CMSIS_v1.05.003\NuvotonPlatform_Keil\Include\NUC1xx-LB_002\LCD_Driver.h" lastModified="136156bf390">
+      </source>
+      <source file="..\..\..\..\..\..\..\..\Nuvoton\BSP Library\NUC100SeriesBSP_CMSIS_v1.05.003\NuvotonPlatform_Keil\Include\Driver\DrvSPI.h" lastModified="136156bf390">
+         <include file="..\..\..\cmsis_boot\NUC1xx.h"/>
+         <include file="..\..\..\..\..\..\..\..\Nuvoton\BSP Library\NUC100SeriesBSP_CMSIS_v1.05.003\NuvotonPlatform_Keil\Include\System\SysInfra.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\Include\Driver\DrvSPI.h" lastModified="1513d28e2e0">
+         <include file="..\..\..\cmsis_boot\NUC1xx.h"/>
+         <include file="..\..\..\..\..\..\..\..\Nuvoton\BSP Library\NUC100SeriesBSP_CMSIS_v1.05.003\NuvotonPlatform_Keil\Include\System\SysInfra.h"/>
+      </source>
+      <source file="..\..\..\..\..\..\..\..\Nuvoton\BSP Library\NUC100SeriesBSP_CMSIS_v1.05.003\NuvotonPlatform_Keil\Src\NUC1xx-LB_002\Ascii_Table.C" lastModified="136156c5920">
+      </source>
+      <source file="..\..\..\..\..\..\..\..\Nuvoton\BSP Library\NUC100SeriesBSP_CMSIS_v1.05.003\NuvotonPlatform_Keil\Include\System\ModuleID.h" lastModified="136156bf390">
+      </source>
+      <source file="..\..\..\cmsis_lib\Src\Driver\DrvGPIO.c" lastModified="1513d28e647">
+         <include file="..\..\..\cmsis_boot\NUC1xx.h"/>
+         <include file="..\..\..\cmsis_lib\Include\Driver\DrvGPIO.h"/>
+      </source>
+      <source file="..\..\..\Init.c" lastModified="1513d28e5a1">
+         <include file="..\..\..\cmsis_lib\Include\Driver\DrvGPIO.h"/>
+         <include file="..\..\..\cmsis_lib\Include\Driver\DrvSPI.h"/>
+         <include file="..\..\..\cmsis_lib\Include\Driver\DrvADC.h"/>
+      </source>
+      <source file="..\..\..\cmsis_boot\NUC1xx.h" lastModified="1513d28e263">
+         <include file="..\..\..\cmsis_core\core_cm0.h"/>
+         <include file="..\..\..\cmsis_boot\system_NUC1xx.h"/>
+         <include file="..\..\..\..\..\..\..\..\Nuvoton\BSP Library\NUC100SeriesBSP_CMSIS_v1.05.003\NuvotonPlatform_Keil\Include\System\SysInfra.h"/>
+      </source>
+      <source file="..\..\..\..\..\..\..\..\Nuvoton\BSP Library\NUC100SeriesBSP_CMSIS_v1.05.003\NuvotonPlatform_Keil\Include\Driver\DrvGPIO.h" lastModified="136156bf390">
+         <include file="..\..\..\cmsis_boot\NUC1xx.h"/>
+      </source>
+      <source file="..\..\..\cmsis_boot\system_NUC1xx.h" lastModified="1513d28e283">
+      </source>
+      <source file="..\..\..\cmsis_lib\Include\Driver\DrvGPIO.h" lastModified="1513d28e254">
+         <include file="..\..\..\cmsis_boot\NUC1xx.h"/>
+      </source>
+      <source file="..\..\..\cmsis_core\core_cm0.h" lastModified="1513d28ea72">
+      </source>
+      <source file="..\..\..\cmsis_boot\system_NUC1xx.c" lastModified="1513d28e66b">
+         <include file="..\..\..\cmsis_boot\NUC1xx.h"/>
+      </source>
+      <source file="..\..\..\cmsis_boot\startup\startup_NUC1xx.c" lastModified="1513d28e273">
+      </source>
+      <source file="..\..\..\cmsis_lib\Src\Driver\DrvADC.c" lastModified="1513d28e2d1">
+         <include file="..\..\..\cmsis_boot\NUC1xx.h"/>
+         <include file="..\..\..\cmsis_core\core_cm0.h"/>
+         <include file="..\..\..\cmsis_lib\Include\Driver\DrvADC.h"/>
+         <include file="..\..\..\cmsis_lib\Include\Driver\DrvSYS.h"/>
+      </source>
+      <source file="..\..\..\cmsis_core\core_cm0.c" lastModified="1513d28e67a">
+      </source>
+      <source file="..\..\..\cmsis_lib\Src\Driver\DrvSYS.c" lastModified="1513d28e6a9">
+         <include file="..\..\..\cmsis_lib\Include\Driver\DrvSYS.h"/>
+      </source>
+      <source file="..\..\..\..\..\..\..\..\Nuvoton\BSP Library\NUC100SeriesBSP_CMSIS_v1.05.003\NuvotonPlatform_Keil\Include\System\SysInfra.h" lastModified="136156bf778">
+         <include file="..\..\..\..\..\..\..\..\Nuvoton\BSP Library\NUC100SeriesBSP_CMSIS_v1.05.003\NuvotonPlatform_Keil\Include\System\ModuleID.h"/>
+         <include file="..\..\..\cmsis_core\core_cm0.h"/>
+      </source>
+   </includePath>
+</dependencies>

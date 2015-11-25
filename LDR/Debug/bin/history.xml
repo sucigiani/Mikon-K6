@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="4.9.3 -mcpu=cortex-m0 -mthumb -g -nostartfiles -Map=LDR.map -O0 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\LDR -TC:\CooCox\CoIDE\configuration\ProgramData\LDR/arm-gcc-link.ld -g">
+      <target file="LDR.elf" lastModified="1513d620174">
+         <source file="..\obj\system_NUC1xx.o" lastModified="1513d5e34d0"/>
+         <source file="..\obj\startup_NUC1xx.o" lastModified="1513d5e350e"/>
+         <source file="..\obj\Init.o" lastModified="1513d5e355c"/>
+         <source file="..\obj\DrvSPI.o" lastModified="1513d5e3630"/>
+         <source file="..\obj\main.o" lastModified="1513d61ff9f"/>
+         <source file="..\obj\DrvGPIO.o" lastModified="1513d5e37c7"/>
+         <source file="..\obj\DrvSYS.o" lastModified="1513d5e3873"/>
+         <source file="..\obj\Ascii_Table.o" lastModified="1513d5e39ab"/>
+         <source file="..\obj\DrvADC.o" lastModified="1513d5e3a41"/>
+         <source file="..\obj\LCD_Driver.o" lastModified="1513d5e3afc"/>
+         <source file="..\obj\core_cm0.o" lastModified="1513d5e3b3b"/>
+      </target>
+   </processor>
+</history>

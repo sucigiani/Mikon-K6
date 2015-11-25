@@ -124,14 +124,10 @@ int main(void)
     	adc=DrvADC_GetConversionData(0);
     	read_ldr(adc);
     	DrvSYS_Delay(1000000);
-    	if ((adc>3000) && (state==1)) {
-    		state = 0;
-    		servo_tutup();
-    	} else if ((adc<900) && (state==1)){
+    	if ((adc>3000) || (adc<900)) {
     		state = 0;
     		servo_tutup();
     	} else {
-    		state = 1;
     		servo_buka();
     	}
     }

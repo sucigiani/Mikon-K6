@@ -16,23 +16,6 @@ void Init();
 
 	//---------------------------
 
-void read_ldr(int x, char y) {
-
-	int nilai;
-	char tul;
-	nilai = x;
-	tul = y;
-
-	clr_all_pannal();
-	print_lcd(0,"LDR = ");
-
-	Show_Word(0,7,nilai/1000+'0');
-	Show_Word(0,8,nilai%1000/100+'0');
-	Show_Word(0,9,nilai%100/10+'0');
-	Show_Word(0,10,nilai%10+'0');
-	Show_Word(1,1,tul);
-	DrvSYS_Delay(100000);
-}
 
 //inisialisasi variabel PWM
     	//uint8_t i;
@@ -60,9 +43,9 @@ void read_ldr(int x, char y) {
     			// PWM_CLKSRC_SEL   = 0: 12M, 1:32K, 2:HCLK, 3:22M
     			// PWM_PreScaler    : PWM clock is divided by (PreScaler + 1)
     			// PWM_ClockDivider = 0: 1/2, 1: 1/4, 2: 1/8, 3: 1/16, 4: 1
-    			init_PWM(0, 0, 130, 4); // initialize PWM0(GPA12) to output 1MHz square wave
+    			init_PWM(0, 0, 180, 4); // initialize PWM0(GPA12) to output 1MHz square wave
     			Clock = 12000000;
-    			PreScaler = 130;
+    			PreScaler = 180;
     			ClockDivider = 1;
     			Frequency = 50;
 
@@ -95,9 +78,9 @@ void read_ldr(int x, char y) {
     			// PWM_CLKSRC_SEL   = 0: 12M, 1:32K, 2:HCLK, 3:22M
     			// PWM_PreScaler    : PWM clock is divided by (PreScaler + 1)
     			// PWM_ClockDivider = 0: 1/2, 1: 1/4, 2: 1/8, 3: 1/16, 4: 1
-    			init_PWM(0, 0, 60, 4); // initialize PWM0(GPA12) to output 1MHz square wave
+    			init_PWM(0, 0, 80, 4); // initialize PWM0(GPA12) to output 1MHz square wave
     			Clock = 12000000;
-    			PreScaler = 60;
+    			PreScaler = 80;
     			ClockDivider = 1;
     			Frequency = 50;
 
@@ -119,22 +102,45 @@ int main(void)
 {
     Init();
     int adc;
-	char kirim;
+    uint8_t kirim;
     Initial_pannel();
     DrvGPIO_ClrBit(E_GPD,14);
     while(1) {
-    	kirim = DrvUART_Read(0,0,0);
+    	//DrvUART_Read(UART_PORT0,kirim,1);
+    	kirim =  _DRVUART_RECEIVEBYTE (UART_PORT0);
     	DrvADC_StartConvert();
     	adc=DrvADC_GetConversionData(0);
-    	read_ldr(adc,kirim);
-		DrvSYS_Delay(3000000);
-    	if ( (adc>3000) || (adc<800) && (state == 1) ) {
-    		state = 0;
-    		servo_tutup();
-    	} else if ( (adc>=800) && (adc<=3000) && (state == 0) ) {
-    		state = 1;
+    	DrvSYS_Delay(1000000);
+
+    	clr_all_pannal();
+    	print_lcd(0,"LDR = ");
+
+    	Show_Word(0,7,adc/1000+'0');
+    	Show_Word(0,8,adc%1000/100+'0');
+    	Show_Word(0,9,adc%100/10+'0');
+    	Show_Word(0,10,adc%10+'0');
+
+    	if (kirim == '1') {
+    		DrvGPIO_ClrBit(E_GPC,0);
+    		DrvSYS_Delay(500000);
     		servo_buka();
+    		state = 1;
+    	} else if (kirim == '2') {
+    		DrvGPIO_SetBit(E_GPC,0);
+    		DrvSYS_Delay(100000);
+    		servo_tutup();
+    		state = 0;
     	}
+		//DrvSYS_Delay(3000000);
+    	/**if ( (adc>3000) || (adc<500) && (state == 1) ) {
+    		state = 0;
+    		DrvSYS_Delay(500000);
+    		servo_tutup();
+    	} else if ( (adc>=500) && (adc<=3000) && (state == 0) ) {
+    		state = 1;
+    		DrvSYS_Delay(500000);
+    		servo_buka();
+    	}**/
     	DrvSYS_Delay(10000);
     }
 }

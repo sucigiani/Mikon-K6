@@ -172,7 +172,7 @@ void UART0_Init()
 
     /* Uart Config */
     UartParam.u32BaudRate = 9600;
-    UartParam.u8cDataBits = DRVUART_DATABITS_5;
+    UartParam.u8cDataBits = DRVUART_DATABITS_8;
     UartParam.u8cStopBits = DRVUART_STOPBITS_1;
     UartParam.u8cParity = DRVUART_PARITY_NONE;
     UartParam.u8cRxTriggerLevel = DRVUART_FIFO_1BYTES;
@@ -182,8 +182,21 @@ void UART0_Init()
     DrvUART_Open(UartNum, &UartParam);
 }
 
+/*************************************************************
+ * GPIOC Initialization
+**************************************************************/
+void GPIOC_Init()
+{
+   //
+   // Set PC0 Pin Mode
+   //
+   DrvGPIO_Open(E_GPC, 0, E_IO_OUTPUT);
+
+}
+
 void Init()
 {
+	GPIOC_Init();
     GPIOD_Init();
     SPI3_Init();
     ADC_Init();

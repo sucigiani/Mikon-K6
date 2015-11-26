@@ -4,11 +4,12 @@
 #include "DrvADC.h"
 #include "PWM.h"
 #include "DrvUART.h"
+#include "herkulex.h"
 
 //#define  SERVO_CYCTIME        2000 // 20ms = 50Hz
 #define  SERVO_HITIME_MIN       50 // minimum Hi width = 0.5ms
-#define  SERVO_HITIME_MAX      250 // maximum Hi width = 2.5ms
-#define  STEPTIME               10 // incremental time = 1.0ms
+#define  SERVO_HITIME_MAX      100 // maximum Hi width = 1.0ms
+#define  STEPTIME              100 // incremental time = 1.0ms
 int state;
 state = 1;
 void Init();
@@ -45,7 +46,7 @@ void Init();
     			// PWM_ClockDivider = 0: 1/2, 1: 1/4, 2: 1/8, 3: 1/16, 4: 1
     			init_PWM(0, 0, 180, 4); // initialize PWM0(GPA12) to output 1MHz square wave
     			Clock = 12000000;
-    			PreScaler = 180;
+    			PreScaler = 100;
     			ClockDivider = 1;
     			Frequency = 50;
 

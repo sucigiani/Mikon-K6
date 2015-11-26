@@ -10,6 +10,7 @@
 #include "DrvADC.h"
 #include "DrvPWM.h"
 #include "DrvSYS.h"
+#include "DrvUART.h"
 
 /*************************************************************
  * GPIOA Initialization
@@ -157,6 +158,30 @@ void ADC_Init()
     DrvADC_Open(ADC_SINGLE_END,ADC_SINGLE_OP,0x01,INTERNAL_RC22MHZ,2);
 }
 
+/*************************************************************
+ * UART0 Initialization
+**************************************************************/
+void UART0_Init()
+{
+    STR_UART_T UartParam;
+    E_DRVGPIO_FUNC FuncNum = E_FUNC_UART0;
+    E_UART_PORT UartNum = UART_PORT0;
+
+    /* Uart Pin Config */
+    DrvGPIO_InitFunction(E_FUNC_UART0);
+
+    /* Uart Config */
+    UartParam.u32BaudRate = 9600;
+    UartParam.u8cDataBits = DRVUART_DATABITS_5;
+    UartParam.u8cStopBits = DRVUART_STOPBITS_1;
+    UartParam.u8cParity = DRVUART_PARITY_NONE;
+    UartParam.u8cRxTriggerLevel = DRVUART_FIFO_1BYTES;
+    UartParam.u8TimeOut = 0;
+
+    /* Uart Open */
+    DrvUART_Open(UartNum, &UartParam);
+}
+
 void Init()
 {
     GPIOD_Init();
@@ -164,4 +189,5 @@ void Init()
     ADC_Init();
     GPIOA_Init();
     PWM_Init();
+    UART0_Init();
 }

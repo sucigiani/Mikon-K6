@@ -79,6 +79,7 @@
     <File name="cmsis_lib/Include/Driver/DrvPWM.h" path="../../../../../Nuvoton/BSP Library/NUC100SeriesBSP_CMSIS_v1.05.003/NuvotonPlatform_Keil/Include/Driver/DrvPWM.h" type="1"/>
     <File name="cmsis_lib/Include/Driver/DrvSYS.h" path="cmsis_lib/Include/Driver/DrvSYS.h" type="1"/>
     <File name="cmsis_lib/Include/System/ModuleID.h" path="cmsis_lib/Include/System/ModuleID.h" type="1"/>
+    <File name="cmsis_lib/Src/Driver/DrvUART.c" path="../../../../../Nuvoton/BSP Library/NUC100SeriesBSP_CMSIS_v1.05.003/NuvotonPlatform_Keil/Src/Driver/DrvUART.c" type="1"/>
     <File name="cmsis_lib/Include/Driver/DrvADC.h" path="cmsis_lib/Include/Driver/DrvADC.h" type="1"/>
     <File name="cmsis_boot/startup" path="" type="2"/>
     <File name="cmsis_lib/Include/System" path="" type="2"/>
@@ -98,6 +99,7 @@
     <File name="cmsis_lib/Src/Driver/DrvGPIO.c" path="cmsis_lib/Src/Driver/DrvGPIO.c" type="1"/>
     <File name="cmsis_lib/Include/Driver/DrvGPIO.h" path="cmsis_lib/Include/Driver/DrvGPIO.h" type="1"/>
     <File name="cmsis_lib/Include/Driver/LCD_Driver.h" path="../../../../../Nuvoton/BSP Library/NUC100SeriesBSP_CMSIS_v1.05.003/NuvotonPlatform_Keil/Include/NUC1xx-LB_002/LCD_Driver.h" type="1"/>
+    <File name="cmsis_lib/Include/Driver/DrvUART.h" path="../../../../../Nuvoton/BSP Library/NUC100SeriesBSP_CMSIS_v1.05.003/NuvotonPlatform_Keil/Include/Driver/DrvUART.h" type="1"/>
     <File name="cmsis_lib/Src/Driver/PWM.c" path="cmsis_lib/Src/Driver/PWM.c" type="1"/>
     <File name="main.c" path="main.c" type="1"/>
     <File name="cmsis_lib/Include/Driver/PWM.h" path="cmsis_lib/Include/Driver/PWM.h" type="1"/>

@@ -29,7 +29,7 @@
 </editor>
 <editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/Users/A46CB/Desktop/Proyek MIkon Prak/LDR/main.c" title="main.c" tooltip="C:/Users/A46CB/Desktop/Proyek MIkon Prak/LDR/main.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/LDR/main.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3901" selectionTopPixel="1881"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3552" selectionTopPixel="1683"/>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="Init.c" partName="Init.c" path="C:/Users/A46CB/Desktop/Proyek MIkon Prak/LDR/Init.c" title="Init.c" tooltip="C:/Users/A46CB/Desktop/Proyek MIkon Prak/LDR/Init.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/LDR/Init.c"/>

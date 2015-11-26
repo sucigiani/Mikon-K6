@@ -27,6 +27,40 @@ Discarded input sections
  .bss           0x00000000        0x0 ..\obj\system_NUC1xx.o
  .text.SystemCoreClockUpdate
                 0x00000000       0xf4 ..\obj\system_NUC1xx.o
+ .text          0x00000000        0x0 ..\obj\DrvUART.o
+ .data          0x00000000        0x0 ..\obj\DrvUART.o
+ .text.NVIC_EnableIRQ
+                0x00000000       0x2c ..\obj\DrvUART.o
+ .text.NVIC_DisableIRQ
+                0x00000000       0x30 ..\obj\DrvUART.o
+ .text.DrvUART_SetRTS
+                0x00000000       0x6c ..\obj\DrvUART.o
+ .text.DrvUART_Close
+                0x00000000       0xcc ..\obj\DrvUART.o
+ .text.DrvUART_EnableInt
+                0x00000000      0x17c ..\obj\DrvUART.o
+ .text.DrvUART_DisableInt
+                0x00000000       0xcc ..\obj\DrvUART.o
+ .text.DrvUART_ClearIntFlag
+                0x00000000       0xb8 ..\obj\DrvUART.o
+ .text.DrvUART_GetIntStatus
+                0x00000000       0x30 ..\obj\DrvUART.o
+ .text.DrvUART_GetCTSInfo
+                0x00000000       0x48 ..\obj\DrvUART.o
+ .text.DrvUART_Write
+                0x00000000       0x78 ..\obj\DrvUART.o
+ .text.DrvUART_EnablePDMA
+                0x00000000       0x58 ..\obj\DrvUART.o
+ .text.DrvUART_DisablePDMA
+                0x00000000       0x58 ..\obj\DrvUART.o
+ .text.DrvUART_SetFnIRDA
+                0x00000000       0x84 ..\obj\DrvUART.o
+ .text.DrvUART_SetFnLIN
+                0x00000000       0x98 ..\obj\DrvUART.o
+ .text.DrvUART_SetFnRS485
+                0x00000000      0x104 ..\obj\DrvUART.o
+ .text.DrvUART_GetVersion
+                0x00000000       0x10 ..\obj\DrvUART.o
  .text          0x00000000        0x0 ..\obj\startup_NUC1xx.o
  .data          0x00000000        0x0 ..\obj\startup_NUC1xx.o
  .bss           0x00000000        0x0 ..\obj\startup_NUC1xx.o
@@ -254,9 +288,6 @@ Discarded input sections
                 0x00000000       0x58 ..\obj\DrvSYS.o
  .text.DrvSYS_SelectSysTickSource
                 0x00000000       0x58 ..\obj\DrvSYS.o
- .text.DrvSYS_SelectIPClockSource
-                0x00000000      0x1d8 ..\obj\DrvSYS.o
- .rodata        0x00000000       0x58 ..\obj\DrvSYS.o
  .text.DrvSYS_SetClockDivider
                 0x00000000       0xc8 ..\obj\DrvSYS.o
  .text.DrvSYS_SetOscCtrl
@@ -269,14 +300,10 @@ Discarded input sections
                 0x00000000       0x38 ..\obj\DrvSYS.o
  .text.DrvSYS_SetPLLMode
                 0x00000000       0x58 ..\obj\DrvSYS.o
- .text.DrvSYS_GetExtClockFreq
-                0x00000000       0x10 ..\obj\DrvSYS.o
  .text.DrvSYS_GetPLLContent
                 0x00000000      0x108 ..\obj\DrvSYS.o
  .text.DrvSYS_SetPLLContent
                 0x00000000       0x74 ..\obj\DrvSYS.o
- .text.DrvSYS_GetPLLClockFreq
-                0x00000000       0xb4 ..\obj\DrvSYS.o
  .text.DrvSYS_GetHCLKFreq
                 0x00000000       0xa0 ..\obj\DrvSYS.o
  .text.DrvSYS_Open
@@ -287,8 +314,6 @@ Discarded input sections
                 0x00000000       0x14 ..\obj\DrvSYS.o
  .text.DrvSYS_DisableHighPerformanceMode
                 0x00000000       0x14 ..\obj\DrvSYS.o
- .text.DrvSYS_GetChipClockSourceStatus
-                0x00000000       0x90 ..\obj\DrvSYS.o
  .text.DrvSYS_GetClockSwitchStatus
                 0x00000000       0x1c ..\obj\DrvSYS.o
  .text.DrvSYS_ClearClockSwitchStatus
@@ -450,7 +475,7 @@ Linker script and memory map
 
                 0x20004000                _eram = 0x20004000
 
-.text           0x00000000     0x4f78
+.text           0x00000000     0x5918
  *(.isr_vector)
  .isr_vector    0x00000000       0xc0 ..\obj\startup_NUC1xx.o
                 0x00000000                g_pfnVectors
@@ -458,213 +483,242 @@ Linker script and memory map
  .text.SystemInit
                 0x000000c0        0x8 ..\obj\system_NUC1xx.o
                 0x000000c0                SystemInit
+ .text.UART02_IRQHandler
+                0x000000c8       0x4c ..\obj\DrvUART.o
+                0x000000c8                UART02_IRQHandler
+ .text.UART1_IRQHandler
+                0x00000114       0x2c ..\obj\DrvUART.o
+                0x00000114                UART1_IRQHandler
+ .text.BaudRateCalculator
+                0x00000140      0x130 ..\obj\DrvUART.o
+ .text.GetUartClk
+                0x00000270       0x74 ..\obj\DrvUART.o
+ .text.DrvUART_Open
+                0x000002e4      0x2fc ..\obj\DrvUART.o
+                0x000002e4                DrvUART_Open
+ .text.DrvUART_Read
+                0x000005e0       0x78 ..\obj\DrvUART.o
+                0x000005e0                DrvUART_Read
  .text.Default_Reset_Handler
-                0x000000c8       0x64 ..\obj\startup_NUC1xx.o
-                0x000000c8                Default_Reset_Handler
-                0x000000c8                Reset_Handler
+                0x00000658       0x64 ..\obj\startup_NUC1xx.o
+                0x00000658                Default_Reset_Handler
+                0x00000658                Reset_Handler
  .text.Default_Handler
-                0x0000012c        0x8 ..\obj\startup_NUC1xx.o
-                0x0000012c                DebugMon_Handler
-                0x0000012c                I2C0_IRQHandler
-                0x0000012c                HardFault_Handler
-                0x0000012c                SysTick_Handler
-                0x0000012c                PendSV_Handler
-                0x0000012c                NMI_Handler
-                0x0000012c                I2C1_IRQHandler
-                0x0000012c                UART1_IRQHandler
-                0x0000012c                PS2_IRQHandler
-                0x0000012c                USBD_IRQHandler
-                0x0000012c                UsageFault_Handler
-                0x0000012c                TMR0_IRQHandler
-                0x0000012c                ACMP_IRQHandler
-                0x0000012c                I2S_IRQHandler
-                0x0000012c                RTC_IRQHandler
-                0x0000012c                TMR2_IRQHandler
-                0x0000012c                UART02_IRQHandler
-                0x0000012c                MemManage_Handler
-                0x0000012c                WDT_IRQHandler
-                0x0000012c                SVC_Handler
-                0x0000012c                PDMA_IRQHandler
-                0x0000012c                CAN0_IRQHandler
-                0x0000012c                TMR3_IRQHandler
-                0x0000012c                BusFault_Handler
-                0x0000012c                TMR1_IRQHandler
+                0x000006bc        0x8 ..\obj\startup_NUC1xx.o
+                0x000006bc                DebugMon_Handler
+                0x000006bc                I2C0_IRQHandler
+                0x000006bc                HardFault_Handler
+                0x000006bc                SysTick_Handler
+                0x000006bc                PendSV_Handler
+                0x000006bc                NMI_Handler
+                0x000006bc                I2C1_IRQHandler
+                0x000006bc                PS2_IRQHandler
+                0x000006bc                USBD_IRQHandler
+                0x000006bc                UsageFault_Handler
+                0x000006bc                TMR0_IRQHandler
+                0x000006bc                ACMP_IRQHandler
+                0x000006bc                I2S_IRQHandler
+                0x000006bc                RTC_IRQHandler
+                0x000006bc                TMR2_IRQHandler
+                0x000006bc                MemManage_Handler
+                0x000006bc                WDT_IRQHandler
+                0x000006bc                SVC_Handler
+                0x000006bc                PDMA_IRQHandler
+                0x000006bc                CAN0_IRQHandler
+                0x000006bc                TMR3_IRQHandler
+                0x000006bc                BusFault_Handler
+                0x000006bc                TMR1_IRQHandler
  .text.GPIOA_Init
-                0x00000134       0x44 ..\obj\Init.o
-                0x00000134                GPIOA_Init
+                0x000006c4       0x44 ..\obj\Init.o
+                0x000006c4                GPIOA_Init
  .text.PWM_Init
-                0x00000178       0xe8 ..\obj\Init.o
-                0x00000178                PWM_Init
+                0x00000708       0xe8 ..\obj\Init.o
+                0x00000708                PWM_Init
  .text.GPIOD_Init
-                0x00000260       0x14 ..\obj\Init.o
-                0x00000260                GPIOD_Init
+                0x000007f0       0x14 ..\obj\Init.o
+                0x000007f0                GPIOD_Init
  .text.SPI3_Init
-                0x00000274       0x4c ..\obj\Init.o
-                0x00000274                SPI3_Init
+                0x00000804       0x4c ..\obj\Init.o
+                0x00000804                SPI3_Init
  .text.ADC_Init
-                0x000002c0       0x20 ..\obj\Init.o
-                0x000002c0                ADC_Init
- .text.Init     0x000002e0       0x1c ..\obj\Init.o
-                0x000002e0                Init
+                0x00000850       0x20 ..\obj\Init.o
+                0x00000850                ADC_Init
+ .text.UART0_Init
+                0x00000870       0x50 ..\obj\Init.o
+                0x00000870                UART0_Init
+ .text.Init     0x000008c0       0x20 ..\obj\Init.o
+                0x000008c0                Init
  .text.SPI0_IRQHandler
-                0x000002fc       0x74 ..\obj\DrvSPI.o
-                0x000002fc                SPI0_IRQHandler
+                0x000008e0       0x74 ..\obj\DrvSPI.o
+                0x000008e0                SPI0_IRQHandler
  .text.SPI1_IRQHandler
-                0x00000370       0x74 ..\obj\DrvSPI.o
-                0x00000370                SPI1_IRQHandler
+                0x00000954       0x74 ..\obj\DrvSPI.o
+                0x00000954                SPI1_IRQHandler
  .text.SPI2_IRQHandler
-                0x000003e4       0x74 ..\obj\DrvSPI.o
-                0x000003e4                SPI2_IRQHandler
+                0x000009c8       0x74 ..\obj\DrvSPI.o
+                0x000009c8                SPI2_IRQHandler
  .text.SPI3_IRQHandler
-                0x00000458       0x74 ..\obj\DrvSPI.o
-                0x00000458                SPI3_IRQHandler
+                0x00000a3c       0x74 ..\obj\DrvSPI.o
+                0x00000a3c                SPI3_IRQHandler
  .text.DrvSPI_Open
-                0x000004cc      0x444 ..\obj\DrvSPI.o
-                0x000004cc                DrvSPI_Open
+                0x00000ab0      0x444 ..\obj\DrvSPI.o
+                0x00000ab0                DrvSPI_Open
  .text.DrvSPI_SetEndian
-                0x00000910       0x50 ..\obj\DrvSPI.o
-                0x00000910                DrvSPI_SetEndian
+                0x00000ef4       0x50 ..\obj\DrvSPI.o
+                0x00000ef4                DrvSPI_SetEndian
  .text.DrvSPI_SetTriggerMode
-                0x00000960       0x40 ..\obj\DrvSPI.o
-                0x00000960                DrvSPI_SetTriggerMode
+                0x00000f44       0x40 ..\obj\DrvSPI.o
+                0x00000f44                DrvSPI_SetTriggerMode
  .text.DrvSPI_SetSlaveSelectActiveLevel
-                0x000009a0       0x40 ..\obj\DrvSPI.o
-                0x000009a0                DrvSPI_SetSlaveSelectActiveLevel
+                0x00000f84       0x40 ..\obj\DrvSPI.o
+                0x00000f84                DrvSPI_SetSlaveSelectActiveLevel
  .text.read_ldr
-                0x000009e0       0xb8 ..\obj\main.o
-                0x000009e0                read_ldr
+                0x00000fc4       0xd8 ..\obj\main.o
+                0x00000fc4                read_ldr
  .text.servo_buka
-                0x00000a98      0x100 ..\obj\main.o
-                0x00000a98                servo_buka
+                0x0000109c      0x100 ..\obj\main.o
+                0x0000109c                servo_buka
  .text.servo_tutup
-                0x00000b98      0x100 ..\obj\main.o
-                0x00000b98                servo_tutup
- .text.main     0x00000c98       0x98 ..\obj\main.o
-                0x00000c98                main
+                0x0000119c      0x100 ..\obj\main.o
+                0x0000119c                servo_tutup
+ .text.main     0x0000129c       0xb0 ..\obj\main.o
+                0x0000129c                main
  .text.GPAB_IRQHandler
-                0x00000d30       0x54 ..\obj\DrvGPIO.o
-                0x00000d30                GPAB_IRQHandler
+                0x0000134c       0x54 ..\obj\DrvGPIO.o
+                0x0000134c                GPAB_IRQHandler
  .text.GPCDE_IRQHandler
-                0x00000d84       0x54 ..\obj\DrvGPIO.o
-                0x00000d84                GPCDE_IRQHandler
+                0x000013a0       0x54 ..\obj\DrvGPIO.o
+                0x000013a0                GPCDE_IRQHandler
  .text.EINT0_IRQHandler
-                0x00000dd8       0x28 ..\obj\DrvGPIO.o
-                0x00000dd8                EINT0_IRQHandler
+                0x000013f4       0x28 ..\obj\DrvGPIO.o
+                0x000013f4                EINT0_IRQHandler
  .text.EINT1_IRQHandler
-                0x00000e00       0x28 ..\obj\DrvGPIO.o
-                0x00000e00                EINT1_IRQHandler
+                0x0000141c       0x28 ..\obj\DrvGPIO.o
+                0x0000141c                EINT1_IRQHandler
  .text.DrvGPIO_Open
-                0x00000e28       0xd4 ..\obj\DrvGPIO.o
-                0x00000e28                DrvGPIO_Open
+                0x00001444       0xd4 ..\obj\DrvGPIO.o
+                0x00001444                DrvGPIO_Open
  .text.DrvGPIO_ClrBit
-                0x00000efc       0x54 ..\obj\DrvGPIO.o
-                0x00000efc                DrvGPIO_ClrBit
+                0x00001518       0x54 ..\obj\DrvGPIO.o
+                0x00001518                DrvGPIO_ClrBit
  .text.DrvGPIO_InitFunction
-                0x00000f50      0x6ac ..\obj\DrvGPIO.o
-                0x00000f50                DrvGPIO_InitFunction
+                0x0000156c      0x6ac ..\obj\DrvGPIO.o
+                0x0000156c                DrvGPIO_InitFunction
  .text.BOD_IRQHandler
-                0x000015fc       0x28 ..\obj\DrvSYS.o
-                0x000015fc                BOD_IRQHandler
+                0x00001c18       0x28 ..\obj\DrvSYS.o
+                0x00001c18                BOD_IRQHandler
+ .text.DrvSYS_SelectIPClockSource
+                0x00001c40      0x1d8 ..\obj\DrvSYS.o
+                0x00001c40                DrvSYS_SelectIPClockSource
  .text.PWRWU_IRQHandler
-                0x00001624       0x28 ..\obj\DrvSYS.o
-                0x00001624                PWRWU_IRQHandler
+                0x00001e18       0x28 ..\obj\DrvSYS.o
+                0x00001e18                PWRWU_IRQHandler
+ .text.DrvSYS_GetExtClockFreq
+                0x00001e40       0x10 ..\obj\DrvSYS.o
+                0x00001e40                DrvSYS_GetExtClockFreq
+ .text.DrvSYS_GetPLLClockFreq
+                0x00001e50       0xb4 ..\obj\DrvSYS.o
+                0x00001e50                DrvSYS_GetPLLClockFreq
  .text.DrvSYS_Delay
-                0x0000164c       0x3c ..\obj\DrvSYS.o
-                0x0000164c                DrvSYS_Delay
+                0x00001f04       0x3c ..\obj\DrvSYS.o
+                0x00001f04                DrvSYS_Delay
+ .text.DrvSYS_GetChipClockSourceStatus
+                0x00001f40       0x90 ..\obj\DrvSYS.o
+                0x00001f40                DrvSYS_GetChipClockSourceStatus
  .text.DrvADC_Open
-                0x00001688      0x110 ..\obj\DrvADC.o
-                0x00001688                DrvADC_Open
+                0x00001fd0      0x110 ..\obj\DrvADC.o
+                0x00001fd0                DrvADC_Open
  .text.ADC_IRQHandler
-                0x00001798       0xc0 ..\obj\DrvADC.o
-                0x00001798                ADC_IRQHandler
+                0x000020e0       0xc0 ..\obj\DrvADC.o
+                0x000020e0                ADC_IRQHandler
  .text.DrvADC_StartConvert
-                0x00001858       0x2c ..\obj\DrvADC.o
-                0x00001858                DrvADC_StartConvert
+                0x000021a0       0x2c ..\obj\DrvADC.o
+                0x000021a0                DrvADC_StartConvert
  .text.DrvADC_GetConversionData
-                0x00001884       0xa0 ..\obj\DrvADC.o
-                0x00001884                DrvADC_GetConversionData
+                0x000021cc       0xa0 ..\obj\DrvADC.o
+                0x000021cc                DrvADC_GetConversionData
  .text.NVIC_EnableIRQ
-                0x00001924       0x2c ..\obj\PWM.o
+                0x0000226c       0x2c ..\obj\PWM.o
  .text.NVIC_SetPriority
-                0x00001950       0xd4 ..\obj\PWM.o
+                0x00002298       0xd4 ..\obj\PWM.o
  .text.PWMA_IRQHandler
-                0x00001a24      0x194 ..\obj\PWM.o
-                0x00001a24                PWMA_IRQHandler
+                0x0000236c      0x194 ..\obj\PWM.o
+                0x0000236c                PWMA_IRQHandler
  .text.PWMB_IRQHandler
-                0x00001bb8      0x194 ..\obj\PWM.o
-                0x00001bb8                PWMB_IRQHandler
+                0x00002500      0x194 ..\obj\PWM.o
+                0x00002500                PWMB_IRQHandler
  .text.DrvPWM_EnableInt
-                0x00001d4c      0x4d0 ..\obj\PWM.o
-                0x00001d4c                DrvPWM_EnableInt
+                0x00002694      0x4d0 ..\obj\PWM.o
+                0x00002694                DrvPWM_EnableInt
  .text.DrvPWM_DisableInt
-                0x0000221c      0x278 ..\obj\PWM.o
-                0x0000221c                DrvPWM_DisableInt
+                0x00002b64      0x278 ..\obj\PWM.o
+                0x00002b64                DrvPWM_DisableInt
  .text.DrvPWM_ClearInt
-                0x00002494      0x194 ..\obj\PWM.o
-                0x00002494                DrvPWM_ClearInt
+                0x00002ddc      0x194 ..\obj\PWM.o
+                0x00002ddc                DrvPWM_ClearInt
  .text.DrvPWM_GetIntFlag
-                0x00002628      0x108 ..\obj\PWM.o
-                0x00002628                DrvPWM_GetIntFlag
+                0x00002f70      0x108 ..\obj\PWM.o
+                0x00002f70                DrvPWM_GetIntFlag
  .text.DrvPWM_GetCaptureIntStatus
-                0x00002730      0x194 ..\obj\PWM.o
-                0x00002730                DrvPWM_GetCaptureIntStatus
+                0x00003078      0x194 ..\obj\PWM.o
+                0x00003078                DrvPWM_GetCaptureIntStatus
  .text.DrvPWM_ClearCaptureIntStatus
-                0x000028c4      0x2cc ..\obj\PWM.o
-                0x000028c4                DrvPWM_ClearCaptureIntStatus
+                0x0000320c      0x2cc ..\obj\PWM.o
+                0x0000320c                DrvPWM_ClearCaptureIntStatus
  .text.DrvPWM_Open
-                0x00002b90       0x3c ..\obj\PWM.o
-                0x00002b90                DrvPWM_Open
+                0x000034d8       0x3c ..\obj\PWM.o
+                0x000034d8                DrvPWM_Open
  .text.DrvPWM_EnableDeadZone
-                0x00002bcc      0x110 ..\obj\PWM.o
-                0x00002bcc                DrvPWM_EnableDeadZone
+                0x00003514      0x110 ..\obj\PWM.o
+                0x00003514                DrvPWM_EnableDeadZone
  .text.DrvPWM_Enable
-                0x00002cdc      0x264 ..\obj\PWM.o
-                0x00002cdc                DrvPWM_Enable
+                0x00003624      0x264 ..\obj\PWM.o
+                0x00003624                DrvPWM_Enable
  .text.DrvPWM_SetTimerClk
-                0x00002f40      0xaa4 ..\obj\PWM.o
-                0x00002f40                DrvPWM_SetTimerClk
+                0x00003888      0xaa4 ..\obj\PWM.o
+                0x00003888                DrvPWM_SetTimerClk
  .text.DrvPWM_SetTimerIO
-                0x000039e4      0x12c ..\obj\PWM.o
-                0x000039e4                DrvPWM_SetTimerIO
+                0x0000432c      0x12c ..\obj\PWM.o
+                0x0000432c                DrvPWM_SetTimerIO
  .text.DrvPWM_SelectClockSource
-                0x00003b10       0xb0 ..\obj\PWM.o
-                0x00003b10                DrvPWM_SelectClockSource
+                0x00004458       0xb0 ..\obj\PWM.o
+                0x00004458                DrvPWM_SelectClockSource
  .text.init_PWM
-                0x00003bc0      0x58c ..\obj\PWM.o
-                0x00003bc0                init_PWM
+                0x00004508      0x58c ..\obj\PWM.o
+                0x00004508                init_PWM
  .text.PWM_Stop
-                0x0000414c       0x94 ..\obj\PWM.o
-                0x0000414c                PWM_Stop
- .text.PWM_Out  0x000041e0      0x128 ..\obj\PWM.o
-                0x000041e0                PWM_Out
+                0x00004a94       0x94 ..\obj\PWM.o
+                0x00004a94                PWM_Stop
+ .text.PWM_Out  0x00004b28      0x128 ..\obj\PWM.o
+                0x00004b28                PWM_Out
  .text.Initial_pannel
-                0x00004308      0x1d8 ..\obj\LCD_Driver.o
-                0x00004308                Initial_pannel
+                0x00004c50      0x1d8 ..\obj\LCD_Driver.o
+                0x00004c50                Initial_pannel
  .text.WriteData
-                0x000044e0       0x64 ..\obj\LCD_Driver.o
-                0x000044e0                WriteData
- .text.SetPACA  0x00004544      0x108 ..\obj\LCD_Driver.o
-                0x00004544                SetPACA
+                0x00004e28       0x64 ..\obj\LCD_Driver.o
+                0x00004e28                WriteData
+ .text.SetPACA  0x00004e8c      0x108 ..\obj\LCD_Driver.o
+                0x00004e8c                SetPACA
  .text.Show_Word
-                0x0000464c       0xf0 ..\obj\LCD_Driver.o
-                0x0000464c                Show_Word
+                0x00004f94       0xf0 ..\obj\LCD_Driver.o
+                0x00004f94                Show_Word
  .text.print_lcd
-                0x0000473c       0x44 ..\obj\LCD_Driver.o
-                0x0000473c                print_lcd
+                0x00005084       0x44 ..\obj\LCD_Driver.o
+                0x00005084                print_lcd
  .text.clr_all_pannal
-                0x00004780       0x3c ..\obj\LCD_Driver.o
-                0x00004780                clr_all_pannal
- .text          0x000047bc      0x120 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_udivsi3.o)
-                0x000047bc                __aeabi_uidiv
-                0x000047bc                __udivsi3
-                0x000048c8                __aeabi_uidivmod
- .text          0x000048dc      0x1e0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_divsi3.o)
-                0x000048dc                __divsi3
-                0x000048dc                __aeabi_idiv
-                0x00004aa8                __aeabi_idivmod
- .text          0x00004abc        0x4 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_dvmd_tls.o)
-                0x00004abc                __aeabi_idiv0
-                0x00004abc                __aeabi_ldiv0
+                0x000050c8       0x3c ..\obj\LCD_Driver.o
+                0x000050c8                clr_all_pannal
+ .text          0x00005104      0x120 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_udivsi3.o)
+                0x00005104                __aeabi_uidiv
+                0x00005104                __udivsi3
+                0x00005210                __aeabi_uidivmod
+ .text          0x00005224      0x1e0 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_divsi3.o)
+                0x00005224                __divsi3
+                0x00005224                __aeabi_idiv
+                0x000053f0                __aeabi_idivmod
+ .text          0x00005404        0x4 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_dvmd_tls.o)
+                0x00005404                __aeabi_idiv0
+                0x00005404                __aeabi_ldiv0
  *(.init)
  *(.fini)
  *crtbegin.o(.ctors)
@@ -678,41 +732,42 @@ Linker script and memory map
  *(SORT(.dtors.*))
  *(.dtors)
  *(.rodata*)
- .rodata        0x00004ac0        0x7 ..\obj\main.o
- *fill*         0x00004ac7        0x1 
- .rodata        0x00004ac8       0xf8 ..\obj\DrvGPIO.o
- .rodata        0x00004bc0      0x3b8 ..\obj\PWM.o
+ .rodata        0x00005408        0x7 ..\obj\main.o
+ *fill*         0x0000540f        0x1 
+ .rodata        0x00005410       0xf8 ..\obj\DrvGPIO.o
+ .rodata        0x00005508       0x58 ..\obj\DrvSYS.o
+ .rodata        0x00005560      0x3b8 ..\obj\PWM.o
  *(.eh_fram e*)
 
-.glue_7         0x00004f78        0x0
+.glue_7         0x00005918        0x0
  .glue_7        0x00000000        0x0 linker stubs
 
-.glue_7t        0x00004f78        0x0
+.glue_7t        0x00005918        0x0
  .glue_7t       0x00000000        0x0 linker stubs
 
-.vfp11_veneer   0x00004f78        0x0
+.vfp11_veneer   0x00005918        0x0
  .vfp11_veneer  0x00000000        0x0 linker stubs
 
-.v4_bx          0x00004f78        0x0
+.v4_bx          0x00005918        0x0
  .v4_bx         0x00000000        0x0 linker stubs
 
-.iplt           0x00004f78        0x0
+.iplt           0x00005918        0x0
  .iplt          0x00000000        0x0 ..\obj\system_NUC1xx.o
 
-.rel.dyn        0x00004f78        0x0
+.rel.dyn        0x00005918        0x0
  .rel.iplt      0x00000000        0x0 ..\obj\system_NUC1xx.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x00004f78                __exidx_start = .
+                0x00005918                __exidx_start = .
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x00004f78                __exidx_end = .
-                0x00004f78                __etext = .
-                0x00004f78                _sidata = __etext
+                0x00005918                __exidx_end = .
+                0x00005918                __etext = .
+                0x00005918                _sidata = __etext
 
-.data           0x20000000      0x630 load address 0x00004f78
+.data           0x20000000      0x630 load address 0x00005918
                 0x20000000                __data_start__ = .
                 0x20000000                _sdata = __data_start__
  *(vtable)
@@ -747,51 +802,52 @@ Linker script and memory map
                 0x20000630                __data_end__ = .
                 0x20000630                _edata = __data_end__
 
-.igot.plt       0x20000630        0x0 load address 0x000055a8
+.igot.plt       0x20000630        0x0 load address 0x00005f48
  .igot.plt      0x00000000        0x0 ..\obj\system_NUC1xx.o
 
-.bss            0x20000630       0xdc load address 0x000055a8
+.bss            0x20000630       0xe8 load address 0x00005f48
                 0x20000630                . = ALIGN (0x4)
                 0x20000630                __bss_start__ = .
                 0x20000630                _sbss = __bss_start__
  *(.bss*)
- .bss           0x20000630       0x50 ..\obj\DrvSPI.o
- .bss           0x20000680       0x10 ..\obj\DrvGPIO.o
- .bss           0x20000690        0x8 ..\obj\DrvSYS.o
- .bss           0x20000698       0x18 ..\obj\DrvADC.o
- .bss           0x200006b0       0x44 ..\obj\PWM.o
+ .bss           0x20000630        0xc ..\obj\DrvUART.o
+ .bss           0x2000063c       0x50 ..\obj\DrvSPI.o
+ .bss           0x2000068c       0x10 ..\obj\DrvGPIO.o
+ .bss           0x2000069c        0x8 ..\obj\DrvSYS.o
+ .bss           0x200006a4       0x18 ..\obj\DrvADC.o
+ .bss           0x200006bc       0x44 ..\obj\PWM.o
  *(COMMON)
- COMMON         0x200006f4       0x18 ..\obj\main.o
-                0x200006f4                PreScaler
-                0x200006f6                CNR
-                0x200006f8                DutyCycle
-                0x200006fa                CMR
-                0x200006fc                ClockDivider
-                0x20000700                Clock
-                0x20000704                hitime
-                0x20000708                Frequency
-                0x2000070c                . = ALIGN (0x4)
-                0x2000070c                __bss_end__ = .
-                0x2000070c                _ebss = __bss_end__
+ COMMON         0x20000700       0x18 ..\obj\main.o
+                0x20000700                PreScaler
+                0x20000702                CNR
+                0x20000704                DutyCycle
+                0x20000706                CMR
+                0x20000708                ClockDivider
+                0x2000070c                Clock
+                0x20000710                hitime
+                0x20000714                Frequency
+                0x20000718                . = ALIGN (0x4)
+                0x20000718                __bss_end__ = .
+                0x20000718                _ebss = __bss_end__
 
-.heap           0x2000070c        0x0
-                0x2000070c                __end__ = .
-                0x2000070c                _end = __end__
-                0x2000070c                end = __end__
+.heap           0x20000718        0x0
+                0x20000718                __end__ = .
+                0x20000718                _end = __end__
+                0x20000718                end = __end__
  *(.heap*)
-                0x2000070c                __HeapLimit = .
+                0x20000718                __HeapLimit = .
 
-.co_stack       0x2000070c      0x404 load address 0x00005684
-                0x20000710                . = ALIGN (0x8)
- *fill*         0x2000070c        0x4 
+.co_stack       0x20000718      0x400 load address 0x00006030
+                0x20000718                . = ALIGN (0x8)
  *(.co_stack .co_stack.*)
- .co_stack      0x20000710      0x400 ..\obj\startup_NUC1xx.o
-                0x20000710                pulStack
+ .co_stack      0x20000718      0x400 ..\obj\startup_NUC1xx.o
+                0x20000718                pulStack
                 0x20004000                __StackTop = (ORIGIN (ram) + 0x4000)
-                0x20003bfc                __StackLimit = (__StackTop - SIZEOF (.co_stack))
+                0x20003c00                __StackLimit = (__StackTop - SIZEOF (.co_stack))
                 0x20004000                PROVIDE (__stack, __StackTop)
                 0x00000001                ASSERT ((__StackLimit >= __HeapLimit), region ram  overflowed with stack)
 LOAD ..\obj\system_NUC1xx.o
+LOAD ..\obj\DrvUART.o
 LOAD ..\obj\startup_NUC1xx.o
 LOAD ..\obj\Init.o
 LOAD ..\obj\DrvSPI.o
@@ -810,108 +866,117 @@ LOAD c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm
 END GROUP
 OUTPUT(LDR.elf elf32-littlearm)
 
-.debug_info     0x00000000    0x10989
+.debug_info     0x00000000    0x13882
  .debug_info    0x00000000      0x8fa ..\obj\system_NUC1xx.o
- .debug_info    0x000008fa       0xfe ..\obj\startup_NUC1xx.o
- .debug_info    0x000009f8     0x1161 ..\obj\Init.o
- .debug_info    0x00001b59     0x2d0c ..\obj\DrvSPI.o
- .debug_info    0x00004865      0x9cc ..\obj\main.o
- .debug_info    0x00005231     0x21b3 ..\obj\DrvGPIO.o
- .debug_info    0x000073e4     0x2563 ..\obj\DrvSYS.o
- .debug_info    0x00009947       0x4a ..\obj\Ascii_Table.o
- .debug_info    0x00009991     0x2662 ..\obj\DrvADC.o
- .debug_info    0x0000bff3     0x2d73 ..\obj\PWM.o
- .debug_info    0x0000ed66     0x1c23 ..\obj\LCD_Driver.o
+ .debug_info    0x000008fa     0x2d31 ..\obj\DrvUART.o
+ .debug_info    0x0000362b       0xfe ..\obj\startup_NUC1xx.o
+ .debug_info    0x00003729     0x12fa ..\obj\Init.o
+ .debug_info    0x00004a23     0x2d0c ..\obj\DrvSPI.o
+ .debug_info    0x0000772f      0x9fb ..\obj\main.o
+ .debug_info    0x0000812a     0x21b3 ..\obj\DrvGPIO.o
+ .debug_info    0x0000a2dd     0x2563 ..\obj\DrvSYS.o
+ .debug_info    0x0000c840       0x4a ..\obj\Ascii_Table.o
+ .debug_info    0x0000c88a     0x2662 ..\obj\DrvADC.o
+ .debug_info    0x0000eeec     0x2d73 ..\obj\PWM.o
+ .debug_info    0x00011c5f     0x1c23 ..\obj\LCD_Driver.o
 
-.debug_abbrev   0x00000000     0x14fc
+.debug_abbrev   0x00000000     0x17e0
  .debug_abbrev  0x00000000      0x10e ..\obj\system_NUC1xx.o
- .debug_abbrev  0x0000010e       0xa7 ..\obj\startup_NUC1xx.o
- .debug_abbrev  0x000001b5      0x15d ..\obj\Init.o
- .debug_abbrev  0x00000312      0x274 ..\obj\DrvSPI.o
- .debug_abbrev  0x00000586      0x15b ..\obj\main.o
- .debug_abbrev  0x000006e1      0x2ef ..\obj\DrvGPIO.o
- .debug_abbrev  0x000009d0      0x30d ..\obj\DrvSYS.o
- .debug_abbrev  0x00000cdd       0x3c ..\obj\Ascii_Table.o
- .debug_abbrev  0x00000d19      0x313 ..\obj\DrvADC.o
- .debug_abbrev  0x0000102c      0x2d1 ..\obj\PWM.o
- .debug_abbrev  0x000012fd      0x1ff ..\obj\LCD_Driver.o
+ .debug_abbrev  0x0000010e      0x2d5 ..\obj\DrvUART.o
+ .debug_abbrev  0x000003e3       0xa7 ..\obj\startup_NUC1xx.o
+ .debug_abbrev  0x0000048a      0x16c ..\obj\Init.o
+ .debug_abbrev  0x000005f6      0x274 ..\obj\DrvSPI.o
+ .debug_abbrev  0x0000086a      0x15b ..\obj\main.o
+ .debug_abbrev  0x000009c5      0x2ef ..\obj\DrvGPIO.o
+ .debug_abbrev  0x00000cb4      0x30d ..\obj\DrvSYS.o
+ .debug_abbrev  0x00000fc1       0x3c ..\obj\Ascii_Table.o
+ .debug_abbrev  0x00000ffd      0x313 ..\obj\DrvADC.o
+ .debug_abbrev  0x00001310      0x2d1 ..\obj\PWM.o
+ .debug_abbrev  0x000015e1      0x1ff ..\obj\LCD_Driver.o
 
-.debug_aranges  0x00000000      0x848
+.debug_aranges  0x00000000      0x918
  .debug_aranges
                 0x00000000       0x28 ..\obj\system_NUC1xx.o
  .debug_aranges
-                0x00000028       0x28 ..\obj\startup_NUC1xx.o
+                0x00000028       0xc8 ..\obj\DrvUART.o
  .debug_aranges
-                0x00000050       0x48 ..\obj\Init.o
+                0x000000f0       0x28 ..\obj\startup_NUC1xx.o
  .debug_aranges
-                0x00000098      0x1e0 ..\obj\DrvSPI.o
+                0x00000118       0x50 ..\obj\Init.o
  .debug_aranges
-                0x00000278       0x38 ..\obj\main.o
+                0x00000168      0x1e0 ..\obj\DrvSPI.o
  .debug_aranges
-                0x000002b0      0x148 ..\obj\DrvGPIO.o
+                0x00000348       0x38 ..\obj\main.o
  .debug_aranges
-                0x000003f8      0x1a0 ..\obj\DrvSYS.o
+                0x00000380      0x148 ..\obj\DrvGPIO.o
  .debug_aranges
-                0x00000598       0x18 ..\obj\Ascii_Table.o
+                0x000004c8      0x1a0 ..\obj\DrvSYS.o
  .debug_aranges
-                0x000005b0      0x148 ..\obj\DrvADC.o
+                0x00000668       0x18 ..\obj\Ascii_Table.o
  .debug_aranges
-                0x000006f8       0xf8 ..\obj\PWM.o
+                0x00000680      0x148 ..\obj\DrvADC.o
  .debug_aranges
-                0x000007f0       0x58 ..\obj\LCD_Driver.o
+                0x000007c8       0xf8 ..\obj\PWM.o
+ .debug_aranges
+                0x000008c0       0x58 ..\obj\LCD_Driver.o
 
-.debug_ranges   0x00000000      0x790
+.debug_ranges   0x00000000      0x850
  .debug_ranges  0x00000000       0x18 ..\obj\system_NUC1xx.o
- .debug_ranges  0x00000018       0x18 ..\obj\startup_NUC1xx.o
- .debug_ranges  0x00000030       0x38 ..\obj\Init.o
- .debug_ranges  0x00000068      0x1d0 ..\obj\DrvSPI.o
- .debug_ranges  0x00000238       0x28 ..\obj\main.o
- .debug_ranges  0x00000260      0x138 ..\obj\DrvGPIO.o
- .debug_ranges  0x00000398      0x190 ..\obj\DrvSYS.o
- .debug_ranges  0x00000528      0x138 ..\obj\DrvADC.o
- .debug_ranges  0x00000660       0xe8 ..\obj\PWM.o
- .debug_ranges  0x00000748       0x48 ..\obj\LCD_Driver.o
+ .debug_ranges  0x00000018       0xb8 ..\obj\DrvUART.o
+ .debug_ranges  0x000000d0       0x18 ..\obj\startup_NUC1xx.o
+ .debug_ranges  0x000000e8       0x40 ..\obj\Init.o
+ .debug_ranges  0x00000128      0x1d0 ..\obj\DrvSPI.o
+ .debug_ranges  0x000002f8       0x28 ..\obj\main.o
+ .debug_ranges  0x00000320      0x138 ..\obj\DrvGPIO.o
+ .debug_ranges  0x00000458      0x190 ..\obj\DrvSYS.o
+ .debug_ranges  0x000005e8      0x138 ..\obj\DrvADC.o
+ .debug_ranges  0x00000720       0xe8 ..\obj\PWM.o
+ .debug_ranges  0x00000808       0x48 ..\obj\LCD_Driver.o
 
-.debug_line     0x00000000     0x3487
+.debug_line     0x00000000     0x3a68
  .debug_line    0x00000000      0x182 ..\obj\system_NUC1xx.o
- .debug_line    0x00000182       0xa8 ..\obj\startup_NUC1xx.o
- .debug_line    0x0000022a      0x282 ..\obj\Init.o
- .debug_line    0x000004ac      0x881 ..\obj\DrvSPI.o
- .debug_line    0x00000d2d      0x26f ..\obj\main.o
- .debug_line    0x00000f9c      0x75a ..\obj\DrvGPIO.o
- .debug_line    0x000016f6      0x7b2 ..\obj\DrvSYS.o
- .debug_line    0x00001ea8       0x8c ..\obj\Ascii_Table.o
- .debug_line    0x00001f34      0x600 ..\obj\DrvADC.o
- .debug_line    0x00002534      0xba1 ..\obj\PWM.o
- .debug_line    0x000030d5      0x3b2 ..\obj\LCD_Driver.o
+ .debug_line    0x00000182      0x5b5 ..\obj\DrvUART.o
+ .debug_line    0x00000737       0xa8 ..\obj\startup_NUC1xx.o
+ .debug_line    0x000007df      0x2ab ..\obj\Init.o
+ .debug_line    0x00000a8a      0x881 ..\obj\DrvSPI.o
+ .debug_line    0x0000130b      0x272 ..\obj\main.o
+ .debug_line    0x0000157d      0x75a ..\obj\DrvGPIO.o
+ .debug_line    0x00001cd7      0x7b2 ..\obj\DrvSYS.o
+ .debug_line    0x00002489       0x8c ..\obj\Ascii_Table.o
+ .debug_line    0x00002515      0x600 ..\obj\DrvADC.o
+ .debug_line    0x00002b15      0xba1 ..\obj\PWM.o
+ .debug_line    0x000036b6      0x3b2 ..\obj\LCD_Driver.o
 
-.debug_str      0x00000000     0x4497
+.debug_str      0x00000000     0x4e9a
  .debug_str     0x00000000      0x47d ..\obj\system_NUC1xx.o
                                 0x506 (size before relaxing)
- .debug_str     0x0000047d       0xbe ..\obj\startup_NUC1xx.o
+ .debug_str     0x0000047d     0x1992 ..\obj\DrvUART.o
+                               0x2032 (size before relaxing)
+ .debug_str     0x00001e0f       0xbe ..\obj\startup_NUC1xx.o
                                 0x155 (size before relaxing)
- .debug_str     0x0000053b      0xb47 ..\obj\Init.o
-                                0xe3b (size before relaxing)
- .debug_str     0x00001082     0x1368 ..\obj\DrvSPI.o
+ .debug_str     0x00001ecd      0x6de ..\obj\Init.o
+                               0x10c2 (size before relaxing)
+ .debug_str     0x000025ab      0x89d ..\obj\DrvSPI.o
                                0x1f9e (size before relaxing)
- .debug_str     0x000023ea       0x8b ..\obj\main.o
-                                0x534 (size before relaxing)
- .debug_str     0x00002475      0x609 ..\obj\DrvGPIO.o
+ .debug_str     0x00002e48       0x86 ..\obj\main.o
+                                0x53f (size before relaxing)
+ .debug_str     0x00002ece      0x5bf ..\obj\DrvGPIO.o
                                0x1cdf (size before relaxing)
- .debug_str     0x00002a7e      0xb3d ..\obj\DrvSYS.o
+ .debug_str     0x0000348d      0xb3d ..\obj\DrvSYS.o
                                0x2109 (size before relaxing)
- .debug_str     0x000035bb       0xf0 ..\obj\Ascii_Table.o
+ .debug_str     0x00003fca       0xf0 ..\obj\Ascii_Table.o
                                 0x107 (size before relaxing)
- .debug_str     0x000036ab      0x691 ..\obj\DrvADC.o
+ .debug_str     0x000040ba      0x691 ..\obj\DrvADC.o
                                0x1d04 (size before relaxing)
- .debug_str     0x00003d3c      0x67a ..\obj\PWM.o
+ .debug_str     0x0000474b      0x66e ..\obj\PWM.o
                                0x1d6d (size before relaxing)
- .debug_str     0x000043b6       0xe1 ..\obj\LCD_Driver.o
+ .debug_str     0x00004db9       0xe1 ..\obj\LCD_Driver.o
                                 0xd6e (size before relaxing)
 
 .comment        0x00000000       0x70
  .comment       0x00000000       0x70 ..\obj\system_NUC1xx.o
                                  0x71 (size before relaxing)
+ .comment       0x00000000       0x71 ..\obj\DrvUART.o
  .comment       0x00000000       0x71 ..\obj\startup_NUC1xx.o
  .comment       0x00000000       0x71 ..\obj\Init.o
  .comment       0x00000000       0x71 ..\obj\DrvSPI.o
@@ -928,42 +993,45 @@ OUTPUT(LDR.elf elf32-littlearm)
  .ARM.attributes
                 0x00000000       0x31 ..\obj\system_NUC1xx.o
  .ARM.attributes
-                0x00000031       0x31 ..\obj\startup_NUC1xx.o
+                0x00000031       0x31 ..\obj\DrvUART.o
  .ARM.attributes
-                0x00000062       0x31 ..\obj\Init.o
+                0x00000062       0x31 ..\obj\startup_NUC1xx.o
  .ARM.attributes
-                0x00000093       0x31 ..\obj\DrvSPI.o
+                0x00000093       0x31 ..\obj\Init.o
  .ARM.attributes
-                0x000000c4       0x31 ..\obj\main.o
+                0x000000c4       0x31 ..\obj\DrvSPI.o
  .ARM.attributes
-                0x000000f5       0x31 ..\obj\DrvGPIO.o
+                0x000000f5       0x31 ..\obj\main.o
  .ARM.attributes
-                0x00000126       0x31 ..\obj\DrvSYS.o
+                0x00000126       0x31 ..\obj\DrvGPIO.o
  .ARM.attributes
-                0x00000157       0x31 ..\obj\Ascii_Table.o
+                0x00000157       0x31 ..\obj\DrvSYS.o
  .ARM.attributes
-                0x00000188       0x31 ..\obj\DrvADC.o
+                0x00000188       0x31 ..\obj\Ascii_Table.o
  .ARM.attributes
-                0x000001b9       0x31 ..\obj\PWM.o
+                0x000001b9       0x31 ..\obj\DrvADC.o
  .ARM.attributes
-                0x000001ea       0x31 ..\obj\LCD_Driver.o
+                0x000001ea       0x31 ..\obj\PWM.o
  .ARM.attributes
-                0x0000021b       0x1e c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_udivsi3.o)
+                0x0000021b       0x31 ..\obj\LCD_Driver.o
  .ARM.attributes
-                0x00000239       0x1e c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_divsi3.o)
+                0x0000024c       0x1e c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_udivsi3.o)
  .ARM.attributes
-                0x00000257       0x1e c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_dvmd_tls.o)
+                0x0000026a       0x1e c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_divsi3.o)
+ .ARM.attributes
+                0x00000288       0x1e c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_dvmd_tls.o)
 
-.debug_frame    0x00000000     0x1d10
+.debug_frame    0x00000000     0x1ffc
  .debug_frame   0x00000000       0x4c ..\obj\system_NUC1xx.o
- .debug_frame   0x0000004c       0x4c ..\obj\startup_NUC1xx.o
- .debug_frame   0x00000098       0xc4 ..\obj\Init.o
- .debug_frame   0x0000015c      0x720 ..\obj\DrvSPI.o
- .debug_frame   0x0000087c       0x88 ..\obj\main.o
- .debug_frame   0x00000904      0x4c4 ..\obj\DrvGPIO.o
- .debug_frame   0x00000dc8      0x5dc ..\obj\DrvSYS.o
- .debug_frame   0x000013a4      0x498 ..\obj\DrvADC.o
- .debug_frame   0x0000183c      0x38c ..\obj\PWM.o
- .debug_frame   0x00001bc8      0x108 ..\obj\LCD_Driver.o
- .debug_frame   0x00001cd0       0x20 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_udivsi3.o)
- .debug_frame   0x00001cf0       0x20 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_divsi3.o)
+ .debug_frame   0x0000004c      0x2cc ..\obj\DrvUART.o
+ .debug_frame   0x00000318       0x4c ..\obj\startup_NUC1xx.o
+ .debug_frame   0x00000364       0xe4 ..\obj\Init.o
+ .debug_frame   0x00000448      0x720 ..\obj\DrvSPI.o
+ .debug_frame   0x00000b68       0x88 ..\obj\main.o
+ .debug_frame   0x00000bf0      0x4c4 ..\obj\DrvGPIO.o
+ .debug_frame   0x000010b4      0x5dc ..\obj\DrvSYS.o
+ .debug_frame   0x00001690      0x498 ..\obj\DrvADC.o
+ .debug_frame   0x00001b28      0x38c ..\obj\PWM.o
+ .debug_frame   0x00001eb4      0x108 ..\obj\LCD_Driver.o
+ .debug_frame   0x00001fbc       0x20 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_udivsi3.o)
+ .debug_frame   0x00001fdc       0x20 c:/program files (x86)/gnu tools arm embedded/4.9 2015q3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_divsi3.o)

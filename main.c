@@ -3,6 +3,7 @@
 #include "LCD_Driver.h"
 #include "DrvADC.h"
 #include "PWM.h"
+#include "DrvUART.h"
 
 //#define  SERVO_CYCTIME        2000 // 20ms = 50Hz
 #define  SERVO_HITIME_MIN       50 // minimum Hi width = 0.5ms
@@ -15,10 +16,12 @@ void Init();
 
 	//---------------------------
 
-void read_ldr(int x) {
+void read_ldr(int x, char y) {
 
 	int nilai;
+	char tul;
 	nilai = x;
+	tul = y;
 
 	clr_all_pannal();
 	print_lcd(0,"LDR = ");
@@ -27,6 +30,7 @@ void read_ldr(int x) {
 	Show_Word(0,8,nilai%1000/100+'0');
 	Show_Word(0,9,nilai%100/10+'0');
 	Show_Word(0,10,nilai%10+'0');
+	Show_Word(1,1,tul);
 	DrvSYS_Delay(100000);
 }
 
@@ -115,13 +119,14 @@ int main(void)
 {
     Init();
     int adc;
+	char kirim;
     Initial_pannel();
     DrvGPIO_ClrBit(E_GPD,14);
-    while(1)
-    {
+    while(1) {
+    	kirim = DrvUART_Read(0,0,0);
     	DrvADC_StartConvert();
     	adc=DrvADC_GetConversionData(0);
-    	read_ldr(adc);
+    	read_ldr(adc,kirim);
 		DrvSYS_Delay(3000000);
     	if ( (adc>3000) || (adc<800) && (state == 1) ) {
     		state = 0;

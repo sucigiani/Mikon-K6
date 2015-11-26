@@ -16,11 +16,14 @@
       <target file="PWM.o" lastModified="1513f5b2e7c">
          <source file="..\..\..\cmsis_lib\Src\Driver\PWM.c" lastModified="14f6d586de0"/>
       </target>
+      <target file="DrvUART.o" lastModified="151431a53fd">
+         <source file="..\..\..\..\..\..\..\..\Nuvoton\BSP Library\NUC100SeriesBSP_CMSIS_v1.05.003\NuvotonPlatform_Keil\Src\Driver\DrvUART.c" lastModified="136156c5920"/>
+      </target>
       <target file="DrvSYS.o" lastModified="1513f5b2cb7">
          <source file="..\..\..\cmsis_lib\Src\Driver\DrvSYS.c" lastModified="1513d28e2c1"/>
       </target>
-      <target file="main.o" lastModified="15142357e5e">
-         <source file="..\..\..\main.c" lastModified="15142353d3f"/>
+      <target file="main.o" lastModified="151434dbfd7">
+         <source file="..\..\..\main.c" lastModified="151434db88a"/>
       </target>
       <target file="DrvSPI.o" lastModified="1513f5b2aa3">
          <source file="..\..\..\cmsis_lib\Src\Driver\DrvSPI.c" lastModified="1513d28e2f0"/>
@@ -31,8 +34,8 @@
       <target file="core_cm0.o" lastModified="1513f5b2f47">
          <source file="..\..\..\cmsis_core\core_cm0.c" lastModified="1513d28e292"/>
       </target>
-      <target file="Init.o" lastModified="1513f522ac1">
-         <source file="..\..\..\Init.c" lastModified="1513f4b73df"/>
+      <target file="Init.o" lastModified="151432874e4">
+         <source file="..\..\..\Init.c" lastModified="1514326f7ee"/>
       </target>
       <target file="Ascii_Table.o" lastModified="1513f5b2d05">
          <source file="..\..\..\..\..\..\..\..\Nuvoton\BSP Library\NUC100SeriesBSP_CMSIS_v1.05.003\NuvotonPlatform_Keil\Src\NUC1xx-LB_002\Ascii_Table.C" lastModified="136156c5920"/>

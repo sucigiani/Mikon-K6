@@ -101,7 +101,7 @@
     <File name="cmsis_lib/Src/Driver/PWM.c" path="cmsis_lib/Src/Driver/PWM.c" type="1"/>
     <File name="main.c" path="main.c" type="1"/>
     <File name="cmsis_lib/Include/Driver/PWM.h" path="cmsis_lib/Include/Driver/PWM.h" type="1"/>
-    <File name="cmsis_core/core_cm0.c" path="cmsis_core/core_cm0.c" type="1"/>
     <File name="cmsis_lib/Src" path="" type="2"/>
+    <File name="cmsis_core/core_cm0.c" path="cmsis_core/core_cm0.c" type="1"/>
   </Files>
 </Project>

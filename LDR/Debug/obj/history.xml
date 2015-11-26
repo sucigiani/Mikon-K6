@@ -19,8 +19,8 @@
       <target file="DrvSYS.o" lastModified="1513f5b2cb7">
          <source file="..\..\..\cmsis_lib\Src\Driver\DrvSYS.c" lastModified="1513d28e2c1"/>
       </target>
-      <target file="main.o" lastModified="1513f7334a5">
-         <source file="..\..\..\main.c" lastModified="1513f72ee8d"/>
+      <target file="main.o" lastModified="15142357e5e">
+         <source file="..\..\..\main.c" lastModified="15142353d3f"/>
       </target>
       <target file="DrvSPI.o" lastModified="1513f5b2aa3">
          <source file="..\..\..\cmsis_lib\Src\Driver\DrvSPI.c" lastModified="1513d28e2f0"/>

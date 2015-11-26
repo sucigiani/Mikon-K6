@@ -8,7 +8,8 @@
 #define  SERVO_HITIME_MIN       50 // minimum Hi width = 0.5ms
 #define  SERVO_HITIME_MAX      250 // maximum Hi width = 2.5ms
 #define  STEPTIME               10 // incremental time = 1.0ms
-
+int state;
+state = 1;
 void Init();
 
 
@@ -18,6 +19,7 @@ void read_ldr(int x) {
 
 	int nilai;
 	nilai = x;
+
 	clr_all_pannal();
 	print_lcd(0,"LDR = ");
 
@@ -112,23 +114,22 @@ void read_ldr(int x) {
 int main(void)
 {
     Init();
-
-
-    int adc,state;
+    int adc;
     Initial_pannel();
     DrvGPIO_ClrBit(E_GPD,14);
-    state = 1;
     while(1)
     {
     	DrvADC_StartConvert();
     	adc=DrvADC_GetConversionData(0);
     	read_ldr(adc);
-    	DrvSYS_Delay(1000000);
-    	if ((adc>3000) || (adc<900)) {
+		DrvSYS_Delay(3000000);
+    	if ( (adc>3000) || (adc<800) && (state == 1) ) {
     		state = 0;
     		servo_tutup();
-    	} else {
+    	} else if ( (adc>=800) && (adc<=3000) && (state == 0) ) {
+    		state = 1;
     		servo_buka();
     	}
+    	DrvSYS_Delay(10000);
     }
 }
